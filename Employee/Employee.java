@@ -19,8 +19,8 @@ public class Employee {
     @AssertFalse(message = "onLeave must b false")
     private boolean onLeave;
     @NotNull(message = "employmentYear cannot be null")
-    @Min(value = 4,message = "")
-    private Integer employmentYear;
+    @Pattern(regexp = "(\\d{4})",message = "Year has to be four digits")
+    private String employmentYear;
     @NotNull(message = "cannot be null")
     private Integer  annualLeave;
 }

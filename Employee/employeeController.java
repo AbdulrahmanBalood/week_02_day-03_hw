@@ -51,11 +51,11 @@ public class employeeController {
 
             if (id.equals(employees.get(i).getId())){
                 employees.remove(i);
-                return ResponseEntity.status(200).body("Ride deleted");
+                return ResponseEntity.status(200).body("Employee deleted");
             }
 
         }
-        return ResponseEntity.status(400).body("Ride not found");
+        return ResponseEntity.status(400).body("Employee not found");
     }
     @PutMapping(("/apply"))
     public ResponseEntity applyEmployee(@RequestBody String id){
@@ -68,6 +68,8 @@ public class employeeController {
                 if(e1.getAnnualLeave() > 0){
                     e1.setOnLeave(true);
                     return ResponseEntity.status(200).body("Employee is now on leave");
+                }else{
+                    return ResponseEntity.status(400).body("Employee doesn't have annual leaves left");
                 }
             }
         }
